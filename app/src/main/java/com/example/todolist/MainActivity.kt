@@ -125,6 +125,7 @@ class MainActivity : AppCompatActivity(), OnItemClick {
             viewModel.position = position
             viewModel.index = selectedItem.indexDb
 
+            // this edit text is for editing note
             val editText = EditText(this)
             editText.isFocusable = true
             builder.setView(editText)
