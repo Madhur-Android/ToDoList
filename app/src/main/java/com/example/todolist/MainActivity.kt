@@ -113,9 +113,9 @@ class MainActivity : AppCompatActivity(), OnItemClick {
 
     override fun onItemClick(v: View, position: Int) {
 
-        val selectedItem = list[position] // Retrieve the selected item
+        val selectedItem = list[position]
 
-        val builder = AlertDialog.Builder(this) // Use AlertDialog.Builder to create an AlertDialog
+        val builder = AlertDialog.Builder(this)
 
         builder.setMessage(selectedItem.title)
         builder.setPositiveButton("Edit") { dialog, which ->
@@ -124,7 +124,7 @@ class MainActivity : AppCompatActivity(), OnItemClick {
             viewModel.time.set(selectedItem.time)
             viewModel.position = position
             viewModel.index = selectedItem.indexDb
-            // You need to create an EditText widget to set as focusable here
+
             val editText = EditText(this)
             editText.isFocusable = true
             builder.setView(editText)
@@ -132,7 +132,7 @@ class MainActivity : AppCompatActivity(), OnItemClick {
         builder.setNegativeButton("Delete") { dialog, which ->
             viewModel.delete(selectedItem.indexDb)
         }
-        val alertDialog = builder.create() // Create the AlertDialog
+        val alertDialog = builder.create()
         alertDialog.show()
     }
 
